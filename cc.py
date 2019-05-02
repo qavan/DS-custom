@@ -1,12 +1,5 @@
 timeout = 3.0
-helpcommtxt = """Команды:
-                !help - помощь
-                !шар - случайный ответ в виде Да/Нет или из списка вида [1;2]
-                !ролл X,Y - случайное число от X до Y
-                \n
-                Команды админа текстового канала:
-                !erase all/x - удаление всех/x последних сообщений в текстовом канале
-                """
+bigtimeout = 30.0
 def cjcb(s):
     if s.find('соси')!=-1 or s.find('саси')!=-1 or s.find('sosi')!=-1 or s.find('sasi')!=-1 or s.find('suck')!=-1 or s.find('сак ')!=-1:
         return True
@@ -16,7 +9,7 @@ def cerf(s):
         return  True
     return False
 def shar(s):
-    if s.startswith('!шар ') and s.find('[') != -1 and s.find(']') != -1 and s.find(';') != -1 and len(s) != '!шар [;]':
+    if (s.startswith('!шар [')  or s.startswith('!ball [')) and s.find('[') != -1 and s.find('[') == s.rfind('[') and s.find(']') != -1 and s.find(']')==s.rfind(']') and s.find(';') != -1 and len(s) >= 11:
         return True
     return False
 def shar_list(s):
